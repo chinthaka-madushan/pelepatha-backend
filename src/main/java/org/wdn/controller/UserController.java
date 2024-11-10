@@ -38,7 +38,7 @@ public class UserController {
     public ResponseEntity<String> deleteUserById(@Valid @PathVariable Long id){
         if (userService.deleteUser(id)){
             log.info("Received request to delete user : {}",id);
-            return ResponseEntity.ok("user deleted successfuly");
+            return ResponseEntity.ok("user deleted successfully");
         }else {
             return ResponseEntity.ok("user can't delete");
         }
@@ -47,7 +47,7 @@ public class UserController {
     public ResponseEntity<String> deleteUserById(@Valid @RequestBody User user){
         if (userService.update(user)){
             log.info("Received request to update user : {}",user);
-            return ResponseEntity.ok("user updated successfuly");
+            return ResponseEntity.ok("user updated successfully");
         }else {
             return ResponseEntity.ok("user can't update");
         }
@@ -109,8 +109,8 @@ public class UserController {
         map.put("user",employee);
         return map;
     }
-    @GetMapping("/get-next-id")
-    public Long getNextId(){
+    @GetMapping("/get-last-id")
+    public Long getLastId(){
         return  userService.getLastId();
     }
 
